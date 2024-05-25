@@ -11,3 +11,12 @@ class Query(graphene.ObjectType):
 
 schema = graphene.Schema(query=Query)
 
+result = schema.execute("""
+    query{
+        name
+    }
+""")
+
+print(result)
+print(result.data)
+
