@@ -9,3 +9,5 @@ class Query(graphene.ObjectType):
         return 'Hello world'
 
 
+schema = graphene.Schema(query=Query)
+
