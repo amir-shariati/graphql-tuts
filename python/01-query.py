@@ -20,3 +20,5 @@ result = schema.execute("""
 print(result)
 print(result.data)
 
+j = json.dumps(dict(result.data), indent=2)
+print(j)
