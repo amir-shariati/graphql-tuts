@@ -12,3 +12,5 @@ class Query(graphene.ObjectType):
         return True
 
 
+schema = graphene.Schema(query=Query, auto_camelcase=False)
+
