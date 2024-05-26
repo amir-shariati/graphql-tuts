@@ -8,3 +8,8 @@ class PersonType(DjangoObjectType):
         model = Person
 
 
+class CarType(DjangoObjectType):
+    class Meta:
+        model = Car
+
+
