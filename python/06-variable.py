@@ -8,3 +8,5 @@ class Query(graphene.ObjectType):
         return f'Hello {name}'
 
 
+schema = graphene.Schema(query=Query, auto_camelcase=False)
+
