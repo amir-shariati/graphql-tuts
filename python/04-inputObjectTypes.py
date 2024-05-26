@@ -13,3 +13,14 @@ class UserInput(graphene.InputObjectType):
     username = graphene.String(required=True)
 
 
+class CreateUser(graphene.Mutation):
+    class Arguments:
+        user_data = UserInput(required=True)
+
+    user = graphene.Field(User)
+
+    def mutate(self, info, user_data):
+        user = User(username=user_data.username)
+        return CreateUser(user=user)
+
+
