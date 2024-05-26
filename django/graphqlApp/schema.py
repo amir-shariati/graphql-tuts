@@ -21,3 +21,11 @@ class PersonQuery(ObjectType):
         return Person.objects.all()
 
 
+class CarQuery(ObjectType):
+    cars = graphene.List(CarType)
+
+    @staticmethod
+    def resolve_cars(parent, info, **kwargs):
+        return Car.objects.all()
+
+
