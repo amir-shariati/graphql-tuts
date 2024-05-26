@@ -20,3 +20,7 @@ class CreateUser(graphene.Mutation):
         return CreateUser(user=user)
 
 
+class Query(graphene.ObjectType):
+    user = graphene.Field(User)
+
+
