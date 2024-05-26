@@ -24,3 +24,14 @@ class Query(graphene.ObjectType):
 
 schema = graphene.Schema(query=Query)
 
+result = schema.execute("""
+    {
+        user{
+            id
+            username
+            createdAt
+        }
+    }
+""", root={'name': 'Amir Shariati'})
+
+print(result)
