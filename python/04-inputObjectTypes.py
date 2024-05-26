@@ -9,3 +9,7 @@ class User(graphene.ObjectType):
     created_at = graphene.DateTime(default_value=datetime.now())
 
 
+class UserInput(graphene.InputObjectType):
+    username = graphene.String(required=True)
+
+
