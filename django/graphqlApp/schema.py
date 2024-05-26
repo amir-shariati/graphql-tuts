@@ -29,3 +29,6 @@ class CarQuery(ObjectType):
         return Car.objects.all()
 
 
+class Query(PersonQuery, CarQuery, ObjectType):
+    pass
+
