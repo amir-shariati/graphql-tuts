@@ -13,3 +13,11 @@ class CarType(DjangoObjectType):
         model = Car
 
 
+class PersonQuery(ObjectType):
+    persons = graphene.List(PersonType)
+
+    @staticmethod
+    def resolve_persons(parent, info, **kwargs):
+        return Person.objects.all()
+
+
