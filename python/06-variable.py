@@ -10,3 +10,10 @@ class Query(graphene.ObjectType):
 
 schema = graphene.Schema(query=Query, auto_camelcase=False)
 
+result = schema.execute("""
+    query ($user: String){
+        name(name: $user)
+    }
+""", variables={'user': 'Amir Shariati !'})
+
+print(result)
