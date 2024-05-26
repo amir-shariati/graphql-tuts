@@ -9,3 +9,14 @@ class User(graphene.ObjectType):
     created_at = graphene.DateTime(default_value=datetime.now())
 
 
+class CreateUser(graphene.Mutation):
+    class Arguments:
+        username = graphene.String()
+
+    user = graphene.Field(User)
+
+    def mutate(self, info, username):
+        user = User(username=username)
+        return CreateUser(user=user)
+
+
