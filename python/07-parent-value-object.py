@@ -14,3 +14,10 @@ class User(graphene.ObjectType):
         return root.get('name')
 
 
+class Query(graphene.ObjectType):
+    user = graphene.Field(User)
+
+    @staticmethod
+    def resolve_user(root, info):
+        return root
+
