@@ -8,3 +8,5 @@ class Query(graphene.ObjectType):
         return f'Hello {info.context.get("username")}'
 
 
+schema = graphene.Schema(query=Query, auto_camelcase=False)
+
