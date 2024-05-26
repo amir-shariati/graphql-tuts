@@ -1,6 +1,5 @@
 from django.db import models
 
-# Create your models here.
 
 class Person(models.Model):
     name = models.CharField(max_length=100)
@@ -9,3 +8,11 @@ class Person(models.Model):
     def __str__(self):
         return self.name
 
+
+class Car(models.Model):
+    person = models.ForeignKey(to=Person, on_delete=models.CASCADE)
+    name = models.CharField(max_length=100)
+    year = models.IntegerField()
+
+    def __str__(self):
+        return self.name
