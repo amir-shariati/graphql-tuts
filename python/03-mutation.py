@@ -15,8 +15,8 @@ class CreateUser(graphene.Mutation):
 
     user = graphene.Field(User)
 
-    def mutate(self, info, username):
-        user = User(username=username)
+    def mutate(self, info, **kwargs):
+        user = User(username=kwargs['username'])
         return CreateUser(user=user)
 
 
