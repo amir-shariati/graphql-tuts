@@ -21,3 +21,6 @@ class Query(graphene.ObjectType):
     def resolve_user(root, info):
         return root
 
+
+schema = graphene.Schema(query=Query)
+
