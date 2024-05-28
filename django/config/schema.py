@@ -7,3 +7,7 @@ class Query(graphqlApp.schema.Query, graphene.ObjectType):
 
 
 schema = graphene.Schema(query=Query)
+class Mutation(graphqlApp.schema.Mutation, graphene.ObjectType):
+    pass
+
+
