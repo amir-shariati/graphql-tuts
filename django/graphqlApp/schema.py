@@ -100,6 +100,11 @@ class DeletePerson(graphene.Mutation):
         return DeletePerson(person=person_instance, ok=ok)
 
 
+class PersonMutation(ObjectType):
+    create_person = CreatePerson.Field()
+    update_person = UpdatePerson.Field()
+    delete_person = DeletePerson.Field()
+
 
 class Query(PersonQuery, CarQuery, ObjectType):
     pass
