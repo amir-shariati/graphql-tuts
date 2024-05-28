@@ -55,6 +55,20 @@ class CarInput(graphene.InputObjectType):
     year = graphene.Int()
 
 
+class CreatePerson(graphene.Mutation):
+    class Arguments:
+        input = PersonInput(required=True)
+
+    ok = graphene.Boolean(default_value=False)
+    person = graphene.Field(PersonType)
+
+    @staticmethod
+    def mutate(parent, info, input=None):
+        person_instance = Person.objects.create(name=input.name, age=input.age)
+        ok = True
+        return CreatePerson(person=person_instance, ok=ok)
+
+
 
 class Query(PersonQuery, CarQuery, ObjectType):
     pass
