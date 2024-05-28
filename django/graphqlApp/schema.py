@@ -21,6 +21,13 @@ class PersonQuery(ObjectType):
     def resolve_persons(parent, info, **kwargs):
         return Person.objects.all()
 
+    @staticmethod
+    def resolve_person(parent, info, **kwargs):
+        id = kwargs.get('id')
+        if id is not None:
+            return Person.objects.get(id=id)
+        return None
+
 
 class CarQuery(ObjectType):
     cars = graphene.List(CarType)
