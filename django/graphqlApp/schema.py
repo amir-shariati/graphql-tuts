@@ -31,6 +31,7 @@ class PersonQuery(ObjectType):
 
 class CarQuery(ObjectType):
     cars = graphene.List(CarType)
+    car = graphene.Field(CarType, id=graphene.Int())
 
     @staticmethod
     def resolve_cars(parent, info, **kwargs):
