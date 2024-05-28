@@ -49,6 +49,12 @@ class PersonInput(graphene.InputObjectType):
     age = graphene.Int()
 
 
+class CarInput(graphene.InputObjectType):
+    person_id = graphene.ID()
+    name = graphene.String()
+    year = graphene.Int()
+
+
 
 class Query(PersonQuery, CarQuery, ObjectType):
     pass
