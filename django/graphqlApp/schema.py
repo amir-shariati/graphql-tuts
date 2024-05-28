@@ -106,6 +106,22 @@ class PersonMutation(ObjectType):
     delete_person = DeletePerson.Field()
 
 
+class CreateCar(graphene.Mutation):
+    class Arguments:
+        input = CarInput(required=True)
+
+    ok = graphene.Boolean(default_value=False)
+    car = graphene.Field(CarType)
+
+    @staticmethod
+    def mutate(parent, info, input):
+        person_instance = Person.objects.get(id=input.person_id)
+        car_instance = Car.objects.create(person=person_instance, name=input.name, year=input.year)
+        ok = True
+        return CreateCar(car=car_instance, ok=ok)
+
+
+
 class Query(PersonQuery, CarQuery, ObjectType):
     pass
 
