@@ -15,6 +15,7 @@ class CarType(DjangoObjectType):
 
 class PersonQuery(ObjectType):
     persons = graphene.List(PersonType)
+    person = graphene.Field(PersonType, id=graphene.Int())
 
     @staticmethod
     def resolve_persons(parent, info, **kwargs):
