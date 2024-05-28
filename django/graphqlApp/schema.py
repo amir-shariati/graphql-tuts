@@ -121,6 +121,9 @@ class CreateCar(graphene.Mutation):
         return CreateCar(car=car_instance, ok=ok)
 
 
+class CarMutation(ObjectType):
+    create_car = CreateCar.Field()
+
 
 class Query(PersonQuery, CarQuery, ObjectType):
     pass
