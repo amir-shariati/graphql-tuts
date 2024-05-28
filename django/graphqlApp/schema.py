@@ -69,6 +69,23 @@ class CreatePerson(graphene.Mutation):
         return CreatePerson(person=person_instance, ok=ok)
 
 
+class UpdatePerson(graphene.Mutation):
+    class Arguments:
+        id = graphene.ID(required=True)
+        input = PersonInput(required=True)
+    ok = graphene.Boolean(default_value=False)
+    person = graphene.Field(PersonType)
+
+    @staticmethod
+    def mutate(parent, info, id, input=None):
+        person_instance = Person.objects.get(id=id)
+        person_instance.name = input.name if input.name is not None else person_instance.name
+        person_instance.age = input.age if input.age is not None else person_instance.age
+        person_instance.save()
+        ok = True
+        return UpdatePerson(person=person_instance, ok=ok)
+
+
 
 class Query(PersonQuery, CarQuery, ObjectType):
     pass
