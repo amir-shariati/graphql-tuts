@@ -37,6 +37,13 @@ class CarQuery(ObjectType):
     def resolve_cars(parent, info, **kwargs):
         return Car.objects.all()
 
+    @staticmethod
+    def resolve_car(parent, info, **kwargs):
+        id = kwargs.get('id')
+        if id is not None:
+            return Car.objects.get(id=id)
+
+
 
 class Query(PersonQuery, CarQuery, ObjectType):
     pass
