@@ -128,3 +128,6 @@ class CarMutation(ObjectType):
 class Query(PersonQuery, CarQuery, ObjectType):
     pass
 
+
+class Mutation(PersonMutation, CarMutation, ObjectType):
+    pass
