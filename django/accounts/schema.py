@@ -39,3 +39,5 @@ class CreateUser(graphene.Mutation):
         return CreateUser(user=user_instance, ok=ok)
 
 
+class Mutation(ObjectType):
+    create_account = CreateUser.Field()
