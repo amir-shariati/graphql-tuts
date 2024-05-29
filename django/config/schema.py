@@ -1,5 +1,6 @@
 import graphene
 import graphqlApp.schema
+import accounts.schema
 
 
 class Query(graphqlApp.schema.Query, graphene.ObjectType):
