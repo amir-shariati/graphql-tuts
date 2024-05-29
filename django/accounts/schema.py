@@ -25,3 +25,17 @@ class UserInput(graphene.InputObjectType):
     password = graphene.String()
 
 
+class CreateUser(graphene.Mutation):
+    class Arguments:
+        input = UserInput(required=True)
+
+    ok = graphene.Boolean(default_value=False)
+    user = graphene.Field(UserType)
+
+    @staticmethod
+    def mutate(parent, info, input=None):
+        user_instance = User.objects.create_user(username=input.username , email=input.email , password=input.password)
+        ok = True
+        return CreateUser(user=user_instance, ok=ok)
+
+
