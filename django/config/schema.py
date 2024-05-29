@@ -3,7 +3,7 @@ import graphqlApp.schema
 import accounts.schema
 
 
-class Query(graphqlApp.schema.Query, graphene.ObjectType):
+class Query(graphqlApp.schema.Query, accounts.schema.UserQuery, graphene.ObjectType):
     pass
 
 
