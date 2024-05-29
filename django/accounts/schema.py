@@ -8,3 +8,14 @@ class UserType(DjangoObjectType):
         model = User
 
 
+class UserQuery(ObjectType):
+    user = graphene.Field(UserType, id=graphene.ID())
+
+    @staticmethod
+    def resolve_user(parent, info, **kwargs):
+        id = kwargs.get('id')
+        if id is not None:
+            return User.objects.get(id=id)
+        return None
+
+
