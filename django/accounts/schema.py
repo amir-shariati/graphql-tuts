@@ -19,3 +19,9 @@ class UserQuery(ObjectType):
         return None
 
 
+class UserInput(graphene.InputObjectType):
+    username = graphene.String()
+    email = graphene.String()
+    password = graphene.String()
+
+
