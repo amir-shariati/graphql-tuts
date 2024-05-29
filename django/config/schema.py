@@ -7,7 +7,7 @@ class Query(graphqlApp.schema.Query, accounts.schema.UserQuery, graphene.ObjectT
     pass
 
 
-class Mutation(graphqlApp.schema.Mutation, graphene.ObjectType):
+class Mutation(graphqlApp.schema.Mutation, accounts.schema.Mutation, graphene.ObjectType):
     pass
 
 
